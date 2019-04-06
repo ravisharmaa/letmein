@@ -22,9 +22,6 @@
                                 <rect key="frame" x="16" y="63" width="232" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Yay!"/>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oWi-Jt-Cgk"/>
-                                </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="piO-Cx-1EA">
                                 <rect key="frame" x="16" y="155" width="49" height="31"/>
@@ -62,10 +59,23 @@
                             </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="0dW-sq-I8w" appends="YES" id="NhC-Sl-n8v"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="slider" destination="piO-Cx-1EA" id="w6G-fh-LUL"/>
+                        <outlet property="toggle" destination="twG-8L-ihD" id="Wq9-Mm-5xf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0dW-sq-I8w">
+                    <connections>
+                        <action selector="respondToTapGesture:" destination="BYZ-38-t0r" id="AhL-6h-Rik"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-58.399999999999999" y="137.18140929535232"/>
         </scene>

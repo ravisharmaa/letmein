@@ -2,22 +2,38 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var toggle: UIButton!
+    
+    @IBOutlet weak var slider: UISwitch!
+    
+    @IBOutlet weak var button: UIButton!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Adding the button programmatically
+        
+        button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
 
     @IBAction func buttonTapped(_ sender: UIButton) {
-        sender.setTitle("This is changed", for: .normal)
+        
+        print("tapped the button")
+        
+        if slider.isOn {
+            toggle.setTitle("Switch was on", for: .normal)
+        } else {
+            toggle.setTitle("switch was off", for: .normal)
+        }
     }
     
     
     @IBAction func switchTapped(_ sender: UISwitch) {
         if sender.isOn {
-            print("I am on")
-        
+            toggle.setTitle("Yes switch", for: .normal)
         } else {
-            print("dude offed me")
+            toggle.setTitle("No switch", for: .normal)
         }
     }
     
@@ -41,5 +57,10 @@ class ViewController: UIViewController {
         }
     }
     
+   
+    @IBAction func respondToTapGesture(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: view)
+        print(location)
+    }
 }
 
